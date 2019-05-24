@@ -1,0 +1,42 @@
+#include <stdio.h>
+
+void maxandmin(int *parr, int **maxp, int **minp);
+
+int main() {
+	int *maxptr;
+	int *minptr;
+	int arr[5];
+
+	for (int i = 0; i < 5; i++) {
+		printf("input : "); scanf("%d", &arr[i]);
+	}
+
+	maxandmin(arr, &maxptr, &minptr);
+
+	printf("max : %d\n", *maxptr);
+	printf("min : %d\n", *minptr);
+
+	return 0;
+
+
+}
+
+void maxandmin(int *parr, int **maxp, int **minp) {
+	int *max;
+	int *min;
+
+	max = min = &parr[0];
+
+	for (int i = 0; i < 5; i++) {
+		if (*max<parr[i]) {
+			max = &parr[i];
+		}
+
+		if (*min>parr[i]) {
+			min = &parr[i];
+		}
+	}
+
+	*maxp = max;
+	*minp = min;
+}

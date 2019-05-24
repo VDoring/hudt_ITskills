@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+int squareValue(int n);
+int squareReference(int *n);
+
+int main() {
+	int squareA = 4;
+	printf("%d\n", squareValue(squareA));
+	squareReference(&squareA);
+	printf("%d\n", squareA);
+
+	return 0;
+}
+
+int squareValue(int n) {
+	return n * n;
+}
+
+int  squareReference(int *n) {
+	(*n) *= (*n);
+}
